@@ -30,4 +30,17 @@ public class UserController {
 
         return "user";
     }
+
+    @GetMapping("/admin")
+    public String userAdmin(Principal principal, Model model){
+        User user = userService.findByUsername(principal.getName());
+
+        if (user != null || user.getUsername() == "admin") {
+            model.addAttribute("admin", user);
+        }else {
+            return "error/404";
+        }
+
+        return "admin";
+    }
 }

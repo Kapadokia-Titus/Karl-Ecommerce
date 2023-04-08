@@ -8,13 +8,13 @@
 
 ## Screenshots
 
-<img src="src/main/resources/static/images/example1.PNG" height=60% width=95%>
+<img src="cover.PNG" height=60% width=95%>
 
 ## Installation
 
 You can clone this repository and use it localy:
 ```sh
-$ git clone https://github.com/syqu22/spring-boot-shop-sample.git
+$ https://github.com/Kapadokia-Titus/Karl-Ecommerce.git
 ```
 
 **Using Maven plugin**
