@@ -1,0 +1,14 @@
+com/syqu/shop/controller/CartControllerMvcTests.class
+com/syqu/shop/repository/UserRepositoryTests.class
+com/syqu/shop/service/ShoppingCartServiceTests.class
+com/syqu/shop/model/ProductEntityTests.class
+com/syqu/shop/controller/HomeControllerMvcTests.class
+com/syqu/shop/ApplicationTests.class
+com/syqu/shop/service/ProductServiceTests.class
+com/syqu/shop/service/UserServiceTests.class
+com/syqu/shop/creator/UserCreator.class
+com/syqu/shop/controller/ControllersTests.class
+com/syqu/shop/model/UserEntityTests.class
+com/syqu/shop/repository/ProductRepositoryTests.class
+com/syqu/shop/creator/ProductCreator.class
+com/syqu/shop/controller/LoginControllerMvcTests.class
