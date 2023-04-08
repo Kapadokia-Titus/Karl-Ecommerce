@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="fragments/nheader :: nheader-css">
+<head th:replace="fragments/header :: header-css">
 </head>
 
 <body>
-<div th:replace="fragments/nheader :: nheader"></div>
+<div th:replace="fragments/header :: header"></div>
 
 <div class="cart_area section_padding_100 clearfix">
 <div class="container">
@@ -16,7 +16,6 @@
             <tr>
                 <th>Product</th>
                 <th>Price</th>
-                <th>Quantity</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -27,13 +26,7 @@
                 <h6 th:text="${product.getKey().getName()}"></h6>
                 </td>
                 <td class="price"><span th:text="${product.getKey().getPrice()}"></span></td>
-                <td class="qty">
-                <div class="quantity">
-                <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
-                <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                </div>
-                 <td>
+                <td>
                  <div class="update-checkout w-50 text-right">
                  <a th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}">clear Item</a>
                 </div>
@@ -99,7 +92,7 @@
 </div>
 
 
- <div th:replace="fragments/nfooter :: nfooter"></div>
+ <div th:replace="fragments/footer :: footer"></div>
 </div>
 </body>
 

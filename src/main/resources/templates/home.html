@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<head th:replace="fragments/nheader :: nheader-css">
+<head th:replace="fragments/header :: header-css">
 </head>
 
 <body>
-  <div th:replace="fragments/nheader :: nheader"></div>
+  <div th:replace="fragments/header :: header"></div>
 <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 <div class="modal-content">
@@ -125,7 +125,7 @@
 </div>
 </section>
 
-  <div th:replace="fragments/nfooter :: nfooter"></div>
+  <div th:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>

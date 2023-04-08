@@ -8,7 +8,7 @@
 
 ## Screenshots
 
-<img src="cover.PNG" height=60% width=95%>
+<img src="cover.png" height=60% width=95%>
 
 ## Installation
 

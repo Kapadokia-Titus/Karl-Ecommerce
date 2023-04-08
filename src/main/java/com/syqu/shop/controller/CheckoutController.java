@@ -1,5 +1,6 @@
 package com.syqu.shop.controller;
 
+import com.syqu.shop.domain.ShopOrder;
 import com.syqu.shop.service.ProductService;
 import com.syqu.shop.service.ShoppingCartService;
 import org.slf4j.Logger;
@@ -25,7 +26,13 @@ public class CheckoutController {
         model.addAttribute("products", shoppingCartService.productsInCart());
         model.addAttribute("total", shoppingCartService.productsInCart().size());
         model.addAttribute("totalPrice", shoppingCartService.totalPrice());
+        model.addAttribute("orderForm", new ShopOrder());
+        model.addAttribute("method", "new");
+        if (shoppingCartService.productsInCart().isEmpty()){
+            return "redirect:/home";
+        }
 
         return "checkout";
     }
+
 }

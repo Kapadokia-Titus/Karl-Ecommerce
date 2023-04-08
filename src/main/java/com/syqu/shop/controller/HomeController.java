@@ -3,6 +3,7 @@ package com.syqu.shop.controller;
 import com.syqu.shop.domain.Product;
 import com.syqu.shop.service.CategoryService;
 import com.syqu.shop.service.ProductService;
+import com.syqu.shop.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ public class HomeController {
 
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
 
     @Autowired
     public HomeController(ProductService productService) {
@@ -27,6 +30,7 @@ public class HomeController {
     @GetMapping(value = {"/","/index","/home"})
     public String home(Model model){
         model.addAttribute("products", getAllProducts());
+        model.addAttribute("total", shoppingCartService.productsInCart().size());
         model.addAttribute("productsCount", productsCount());
         model.addAttribute("categories", categoryService.findAll());
         return "home";

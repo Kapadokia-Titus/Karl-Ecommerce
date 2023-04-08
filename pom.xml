@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Shope</name>
+    <name>Clothes 4 Men</name>
     <description>E-commerce shop</description>
 
     <parent>

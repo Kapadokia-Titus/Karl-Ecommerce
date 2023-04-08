@@ -1,87 +1,107 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<head th:replace="fragments/nheader :: nheader-css">
+<head th:replace="fragments/header :: header-css">
 </head>
 
 <body>
-<div th:replace="fragments/nheader :: nheader"></div>
+<div th:replace="fragments/header :: header"></div>
 
 <div id="wrapper">
 
 
  <div class="checkout_area section_padding_100">
-   <div class="container">
-    <div class="row">
-    <div class="col-12 col-md-6">
-    <div class="checkout_details_area mt-50 clearfix">
-    <div class="cart-page-heading">
-    <h5>Billing Address</h5>
-    </div>
-    <form action="#" method="post">
-    <div class="row">
-    <div class="col-md-6 mb-3">
-    <label for="first_name">First Name <span>*</span></label>
-    <input type="text" class="form-control" id="first_name" value="" required>
-    </div>
-    <div class="col-md-6 mb-3">
-    <label for="last_name">Last Name <span>*</span></label>
-    <input type="text" class="form-control" id="last_name" value="" required>
-    </div>
-    <div class="col-12 mb-3">
-    <label for="company">Company Name</label>
-    <input type="text" class="form-control" id="company" value="">
-    </div>
-    <div class="col-12 mb-3">
-    <label for="country">Country <span>*</span></label>
-      <select class="custom-select d-block w-100" id="country">
-      <option value="usa">United States</option>
-      <option value="uk">United Kingdom</option>
-      <option value="ger">Germany</option>
-      <option value="fra">France</option>
-      <option value="ind">India</option>
-      <option value="aus">Australia</option>
-      <option value="bra">Brazil</option>
-      <option value="cana">Canada</option>
-    </select>
-    </div>
-     <div class="col-12 mb-4">
-      <label for="email_address">Email Address <span>*</span></label>
-      <input type="email" class="form-control" id="email_address" value="">
-     </div>
-     <div class="col-md-8 mb-3">
-      <label for="card_number">Card Number <span>*</span></label>
-      <input type="text" class="form-control" id="card_number" value="" required>
-     </div>
-     <div class="col-md-4 mb-3">
-      <label for="card_cvv">Card Cvv <span>*</span></label>
-      <input type="text" class="form-control" id="card_cvv" value="" required>
-     </div>
 
-    </div>
-    </form>
-    </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
-    <div class="order-details-confirmation">
-    <div class="cart-page-heading">
-    <h5>Your Order</h5>
-    <p>The Details</p>
-    </div>
-    <ul class="order-details-form mb-4">
-    <li><span>Product</span> <span>Total</span></li>
-    <li  th:each="product : ${products.entrySet()}">
-     <span th:text="${product.getKey().getName()}"></span> <span th:text="${product.getKey().getPrice()}"></span>
-    </li>
-    <li><span>Subtotal</span> <span th:text="${totalPrice}"></span></li>
-    <li><span>Shipping</span> <span>Free</span></li>
-    <li><span>Total</span> <span th:text="${totalPrice}"></span></li>
-    </ul>
-    <a class="btn karl-checkout-btn" th:href="@{'/cart/checkout'}">Place Order</a>
-    </div>
-    </div>
-    </div>
+           <div class="container">
+            <form th:object="${orderForm}" method="POST">
+                <div class="row">
+
+                        <div class="col-12 col-md-6">
+                        <div class="checkout_details_area mt-50 clearfix">
+                        <div class="cart-page-heading">
+                        <h5>Billing Address</h5>
+                        </div>
+
+                       <div class="row">
+                         <div class="col-md-6 mb-3">
+                            <label for="first_name">First Name <span>*</span></label>
+                            <input type="text" th:field="*{first_name}" class="form-control" id="first_name" value="" required />
+                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></div>
+                         </div>
+                         <div class="col-md-6 mb-3">
+                            <label for="last_name">Last Name <span>*</span></label>
+                            <input type="text" th:field="*{last_name}" class="form-control" id="last_name" value="" required />
+                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></div>
+                         </div>
+                         <div class="col-12 mb-3">
+                            <label for="company">Company Name</label>
+                            <input type="text" th:field="*{company}" class="form-control" id="company" value="" />
+                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></div>
+                         </div>
+                         <div class="col-12 mb-3">
+                         <label for="country">Country <span>*</span></label>
+                           <select th:field="*{country}" class="custom-select d-block w-100" id="country">
+                           <option value="usa">United States</option>
+                           <option value="uk">United Kingdom</option>
+                           <option value="ger">Germany</option>
+                           <option value="fra">France</option>
+                           <option value="ind">India</option>
+                           <option value="aus">Australia</option>
+                           <option value="bra">Brazil</option>
+                           <option value="cana">Canada</option>
+                         </select>
+                         </div>
+                         <div class="col-12 mb-4">
+                          <label for="email_address">Email Address <span>*</span></label>
+                          <input type="email" th:field="*{email}" class="form-control" id="email_address" value="" />
+                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                         </div>
+                           <div class="col-12 mb-4">
+                               <label for="delivery_address">Delivery Address <span>*</span></label>
+                               <input type="text" th:field="*{address}" class="form-control" id="delivery_address" value=""/>
+                               <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></div>
+                           </div>
+                         <div class="col-md-8 mb-3">
+                          <label for="card_number">Card Number <span>*</span></label>
+                          <input type="text" th:field="*{card_number}" class="form-control" id="card_number" value="" required />
+                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('card_number')}" th:errors="*{card_number}"></div>
+                         </div>
+                         <div class="col-md-4 mb-3">
+                           <label for="cvv">Card Cvv <span>*</span></label>
+                           <input type="text" th:field="*{cvv}" class="form-control" id="cvv" value="" required />
+                             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('cvv')}" th:errors="*{cvv}"></div>
+                          </div>
+                           <input type="text" th:field="*{total}" class="form-control" id="total" value="" th:value="${totalPrice}" hidden>
+                           <input type="text" th:field="*{quantity}" class="form-control" id="quantity" value="" th:value="${products.size()}" hidden>
+                       </div>
+
+                </div>
+                </div>
+                        <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                <div class="shopOrder-details-confirmation">
+                <div class="cart-page-heading">
+                <h5>Your Order</h5>
+                <p>The Details</p>
+                </div>
+                <ul class="shopOrder-details-form mb-4">
+                <li><span>Product</span> <span>Total</span></li>
+                <li  th:each="product : ${products.entrySet()}">
+                 <span th:text="${product.getKey().getName()}"></span> <span th:text="${product.getKey().getPrice()}"></span>
+                </li>
+                <li><span>Subtotal</span> <span th:text="${totalPrice}"></span></li>
+                <li><span>Shipping</span> <span>Free</span></li>
+                <li><span>Total</span> <span th:text="${totalPrice}" th:field="*{total}"></span></li>
+                </ul>
+<!--                    <a th:href="@{/cart/checkout}" type="submit" class="btn karl-checkout-btn" th:value="#{cart.confirm}"></a>-->
+                    <input class="btn karl-checkout-btn" type="submit" th:action="@{/cart/checkout}" th:value="#{cart.confirm}"/>
+                </div>
+                </div>
+
+                </div>
+           </form>
+
    </div>
+
  </div>
 
 

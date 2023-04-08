@@ -2,7 +2,9 @@ com/syqu/shop/domain/Category.class
 com/syqu/shop/domain/User.class
 com/syqu/shop/repository/ProductRepository.class
 com/syqu/shop/validator/ProductValidator.class
+com/syqu/shop/service/OrderService.class
 com/syqu/shop/repository/CategoryRepository.class
+com/syqu/shop/service/impl/OrderServiceImpl.class
 com/syqu/shop/controller/HomeController.class
 com/syqu/shop/controller/UserController.class
 com/syqu/shop/controller/CheckoutController.class
@@ -14,6 +16,7 @@ com/syqu/shop/Application.class
 com/syqu/shop/controller/LoginController.class
 com/syqu/shop/controller/RegisterController.class
 com/syqu/shop/service/impl/ShoppingCartServiceImpl.class
+com/syqu/shop/domain/ShopOrder.class
 com/syqu/shop/domain/Product.class
 com/syqu/shop/service/CategoryService.class
 com/syqu/shop/config/WebMvcConfig.class
@@ -25,4 +28,6 @@ com/syqu/shop/service/impl/ProductServiceImpl.class
 com/syqu/shop/service/impl/UserDetailsServiceImpl.class
 com/syqu/shop/service/ShoppingCartService.class
 com/syqu/shop/controller/CartController.class
+com/syqu/shop/validator/OrderValidator.class
+com/syqu/shop/repository/OrderRepository.class
 com/syqu/shop/service/ProductService.class
